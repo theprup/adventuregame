@@ -1,0 +1,173 @@
+import time
+import random
+
+
+def print_pause(message_to_print):
+    print(message_to_print)
+    time.sleep(1)
+
+
+def intro():
+    print_pause("You are a big bad wolf and find yourself in a clearing.")
+    print_pause("In front of you are three houses with little piggys inside")
+    print_pause("It's time to go pig hunting")
+
+
+def straw_house(items):
+    item = random.choice(items)
+    print_pause("You choose the house of straw.")
+    print_pause("You advance towards the house "
+                "and see a weapon on the ground")
+    if "slingshot" in item:
+        print_pause("It's a slingshot.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("You fired the weapon and it did nothing...YOU LOSE!")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+    if "flamethrower" in item:
+        print_pause("It's a flamethrower.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Do you smell bacon? That is BBQ-rific. YOU WIN!")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+    if "bazooka" in item:
+        print_pause("It's a bazooka.")
+        print_pause("Do you want to use your weapon and destroy "
+                    "this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Mission accompished! YOU WIN! Extra crisp pig down")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+        choose_house(items)
+
+
+def stick_house(items):
+    item = random.choice(items)
+    print_pause("You choose the house of sticks.")
+    print_pause("You advance towards the house "
+                "and see a weapon on the ground")
+    if "slingshot" in item:
+        print_pause("It's a slingshot.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Are you serious... You'll need more than that "
+                        "to cook that bacon")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house()
+    if "flamethrower" in item:
+        print_pause("It's a flamethrower.")
+        print_pause("Do you want to use your weapon and destroy "
+                    "this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("MMMMMM Bacon...You win again")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+    if "bazooka" in item:
+        print_pause("It's a bazooka.")
+        print_pause("Do you want to use your weapon and destroy "
+                    "this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Too easy. Poor piggy had no chance. YOU WIN!")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+
+
+def brick_house(items):
+    item = random.choice(items)
+    print_pause("You choose the house of bricks.")
+    print_pause("You advance towards the house "
+                "and see a weapon on the ground")
+    if "slingshot" in item:
+        print_pause("It's a slingshot.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Should have kept the powder dry...you LOSE!")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+    if "flamethrower" in item:
+        print_pause("It's a flamethrower.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("Fire on brick? Brick is forged in fire... You LOSE")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+    if "bazooka" in item:
+        print_pause("It's a bazooka.")
+        print_pause("Do you want to use your weapon and destroy this house?")
+        fire = input("yes\n" "no\n").lower()
+        if fire == 'yes':
+            print_pause("The only way to go to get that piggy. YOU WIN!")
+            play_again()
+        else:
+            print_pause("You kept the powder dry this time.")
+            choose_house(items)
+
+
+def choose_house(items):
+    print_pause("Choose the house you'd like to visit:")
+    house = input("1. the house of straw\n",
+                  "2. the house of sticks\n",
+                  "3. the house of bricks\n")
+    if '1' in house:
+        straw_house(items)
+    elif '2' house:
+        stick_house(items)
+    elif '3' in house:
+        brick_house(items)
+    else:
+        print_pause("sorry, I don't understands")
+        choose_house(items)
+
+
+
+def use_weapon(items):
+    print_pause("Do you want to use your weapon and destroy this house?")
+    fire = input("yes\n" "no\n").lower()
+    if response == 'yes':
+        print_pause("You fired the weapon")
+    else:
+        print_pause("You kept the powder dry this time.")
+
+
+def play_again():
+    print_pause("Would you like to play again?")
+    response = input("yes\n" "no\n").lower()
+    if "no" in response:
+        print_pause("OK, goodbye!")
+    elif "yes" in response:
+        print_pause("Very good, let's play again.")
+        play_game()
+
+
+def play_game():
+    items = ["slingshot", "flamethrower", "bazooka"]
+    intro()
+    choose_house(items)
+
+
+play_game()
